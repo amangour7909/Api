@@ -13,7 +13,7 @@ create virtual environment and activate it
 install flask
 <pre>pip install flask</pre>
 run flask
-<pre>run flask</pre> 
+<pre>flask run</pre> 
 
 now my virtual environment is ready. <br>
 To perform API testing I had created a db which contains details of books with three fields author,title and id. <br>
