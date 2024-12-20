@@ -1,0 +1,15 @@
+client server - request response
+flask app setup
+json
+Get Post,  Request-responce, message, status code
+
+API - You -> waiter -> kitchen
+
+#post 
+ -- fetch data from request
+ -- validate request data
+ -- process request
+ -- prepare json responce
+ -- send back responce
+
+RESTful Api - Architectural style of building API
