@@ -13,3 +13,42 @@ API - You -> waiter -> kitchen
  -- send back responce
 
 RESTful Api - Architectural style of building API
+
+Responce codes - 301- misiing parameter
+              200 - ok success
+              404 - not found
+
+MongoDB - Document based, collection-table, document-row, collection don't enforce schema
+ _id = 12 bit, 4 bit-timestamp + 3 bit-machine id, + 3 bit-process id, + 3 bit-increment
+ --> Schema less- In a collection one document can differ from another. It can have different no of fields,content and size.
+ --> Advantages - scaleable, fast query processing, high availability, indexing on every attribute, data is stored in json style format
+
+ Some Considerations while designing schema-
+      --> combine documents if you want to use them together
+      --> use join while writing not in reading
+      --> duplicate the data as disk space is cheap
+      --> Do complex aggregation
+ Example - Design database for blogging website, design RDBMS and NoSql then compare
+      --> RDBMS - Blog-{id,by,title,description,time,likes}, Tags-{tag1,tag2,tag3}, Comments-{id,by,description,time}
+      --> MongoDB - {id,by,title,descripting,time,like,Tags:[tag1,tag2,tag3],Comments:[{},{}]}
+ Commands -
+      --> create db - use db_name
+      --> to see any database first it should have atleast one document
+      --> db.db_name.insert({})
+      --> delete db - first switch to that db then db.dropdatabse()
+
+ DESIGNING A BRAND NEW API - 
+      --> registration of a user
+      --> each user will get 10 tokens
+      --> storing a sentence as one token for particular user
+      --> retrive his stored sentence on out database for 1 token
+
+DESIGN AND ANALYSIS -
+      --> RESOURCE    |   ADDRESS   |    PROTOCOL    |     PARAMETER    |    RESPONCE 
+        - register user |/register  | Post           | username,password| 200 ok, 
+        - store sentence|/store     | Post           | username,pass,sen| 200 ok, 301 out of tokens, 302 invalid user
+        - retrieve sen  |/get       | Get            | username,pass    | 200 ok, 301, 302
+
+
+
+  
